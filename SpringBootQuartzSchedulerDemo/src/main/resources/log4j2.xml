@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
+        <Property name="NEW_PATTERN">[%thread] %-5level %logger{36}.%M {%line} - %msg%n</Property>
+        <Property name="APP_LOG_ROOT">Scheduler</Property>
+<!--         <Property name="graylogpattern">%d{DATE} %-5p %L - %m%n</Property> -->
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${NEW_PATTERN}" />
+        </Console>
+
+        <RollingFile name="appLog"
+            fileName="${APP_LOG_ROOT}/scheduler.log"
+            filePattern="${APP_LOG_ROOT}/%d{yyyy-MM-dd}/scheduler-%d{yyyy-MM-dd}.%i.log">
+            <PatternLayout pattern="${NEW_PATTERN}" />
+<!--                   <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1024KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+<!--  		<GELF name="gelfAppender" server="log.test.net" port="12202" >
+            <PatternLayout pattern="${graylogpattern}"/>
+			Additional fields
+			<KeyValuePair key="DEV" value="scheduler"/>
+			<KeyValuePair key="hostIp" value="${main:ip}"/>
+			<KeyValuePair key="pid" value="${sys:PID}"/>
+        </GELF> -->
+    </Appenders>
+    <Loggers>
+ 
+        <Logger name="com.scheduler" additivity="false">
+            <AppenderRef ref="appLog" />
+            <AppenderRef ref="Console" />
+<!--             <AppenderRef ref="gelfAppender"/> -->
+        </Logger>
+ 
+        <Root level="debug">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
