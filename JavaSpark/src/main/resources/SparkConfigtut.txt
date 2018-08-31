@@ -1,0 +1,35 @@
+References:
+
+http://spark.praveendeshmane.co.in/spark/spark-with-yarn-configuration.jsp
+
+
+
+https://markobigdata.com/2016/08/01/apache-spark-2-0-0-installation-and-configuration/
+
+https://gist.github.com/jacek-lewandowski/278bfc936ca990bee35a
+
+https://jaceklaskowski.gitbooks.io/mastering-apache-spark/spark-sql-QueryExecution.html
+
+
+https://www.infoq.com/articles/traffic-data-monitoring-iot-kafka-and-spark-streaming
+
+//Dataset or data frame examples
+http://www.agildata.com/apache-spark-2-0-api-improvements-rdd-dataframe-dataset-sql/
+
+
+
+SparkMemeory Issue 
+
+https://stackoverflow.com/questions/32292414/apache-spark-effects-of-driver-memory-executor-memory-driver-memory-overhead-a
+
+
+
+
+Spark StoredProcedure
+
+http://www.dofactory.com/topic/1786/spark-and-stored-procedures.aspx
+
+
+SampleSpringBoot 
+
+https://github.com/Zhuinden/spring-spark-example

@@ -1,0 +1,25 @@
+!Configuration # Mandetory
+ 
+# Configure handlers, One or more handlers must be configured.
+handlers:
+- !org.audit4j.core.handler.ConsoleAuditHandler {}
+- !org.audit4j.core.handler.file.FileAuditHandler {}
+#- !org.audit4j.handler.db.DatabaseAuditHandler {}
+- !org.audit4j.handler.db.DatabaseAuditHandler
+  embeded: false
+  db_connection_type: single
+  db_driver: com.mysql.jdbc.Driver
+  db_url: jdbc:mysql://localhost:3306/Audit4j
+  db_user: Audit4J
+  db_password: Audit4J
+ 
+# Configure handlers, Either one handler must be configured.
+layout: !org.audit4j.core.SecureLayout {}
+  
+ 
+# Configure meta data.
+metaData: !com.xerago.utils.AuditMetaData {}
+ 
+# Configure additional properties.
+properties:
+   log.file.location: user.dir
